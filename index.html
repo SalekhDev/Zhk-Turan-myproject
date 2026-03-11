@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="hero-title">ЖК "Туран"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-logo">ЖК "Туран"</div>
+        <div class="preloader-spinner"></div>
+    </div>
+</div>
+    <header>
+    <div class="container header-content">
+        <nav class="nav">
+            <a href="/" class="logo">ЖК "Туран"</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="about.html" class="nav-link">О комплексе</a></li>
+                <li><a href="#plans" class="nav-link">Планировки</a></li>
+                <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                <li><a href="#benefits" class="nav-link">Преимущества</a></li>
+                <li><a href="#location" class="nav-link">Локация</a></li>
+                <li><a href="#video" class="nav-link">Видео</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ru">РУ</button>
+                    <button class="lang-btn" data-lang="ky">КЫР</button>
+                    <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                    <button class="lang-btn" data-lang="uz">O'Z</button>
+                    <button class="lang-btn" data-lang="tg">ТОҶ</button>
+                    <button class="lang-btn" data-lang="tk">TKM</button>
+                    <a href="/login" class="nav-link">Вход</a>
+                    <a href="/register" class="nav-link">Регистрация</a>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+    <section class="hero">
+        <div class="container">
+            <h1 data-lang="hero-title">Жилой комплекс "Туран"</h1>
+            <p data-lang="hero-subtitle">Современные квартиры с панорамными видами, развитой инфраструктурой и собственным парком</p>
+            <a href="#apartments" class="btn" data-lang="hero-button">Смотреть квартиры</a>
+        </div>
+    </section>
+
+    <section class="section" id="apartments">
+        <div class="container">
+            <h2 class="section-title" data-lang="section-available">Доступные квартиры</h2>
+            
+            <div class="filters">
+                <div class="filter-group">
+                    <label data-lang="filter-rooms">Комнат:</label>
+                    <select id="filterRooms">
+                        <option value="">Все</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label data-lang="filter-price">Цена до:</label>
+                    <input type="range" id="priceRange" min="1000000" max="20000000" step="100000" value="20000000">
+                    <span id="priceValue">20 000 000 ₽</span>
+                </div>
+                <div class="filter-group">
+                    <label data-lang="filter-building">Корпус:</label>
+                    <select id="filterBuilding">
+                        <option value="">Все</option>
+                        <option value="A">А</option>
+                        <option value="B">Б</option>
+                        <option value="C">В</option>
+                    </select>
+                </div>
+                <button class="btn-filter" id="applyFilters" data-lang="filter-apply">Применить</button>
+                <button class="btn-filter" id="resetFilters" data-lang="filter-reset">Сбросить</button>
+            </div>
+
+            <!-- Обязательно должны быть эти элементы с id -->
+            <div id="loading" class="loading" data-lang="loading">Загрузка квартир...</div>
+            <div id="apartmentsGrid" class="apartments-grid"></div>
+            <div id="noApartments" style="display:none; text-align:center;" data-lang="no-apartments">Квартир не найдено</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-lang="why-us">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-tree"></i>
+                    <h3 data-lang="feature-park">Собственный парк</h3>
+                    <p data-lang="feature-park-desc">Благоустроенная зелёная зона для прогулок и отдыха</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3 data-lang="feature-security">Круглосуточная охрана</h3>
+                    <p data-lang="feature-security-desc">Видеонаблюдение и консьерж-сервис</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-parking"></i>
+                    <h3 data-lang="feature-parking">Подземный паркинг</h3>
+                    <p data-lang="feature-parking-desc">Индивидуальные машиноместа</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3 data-lang="feature-gym">Спортзал и SPA</h3>
+                    <p data-lang="feature-gym-desc">Фитнес-центр с бассейном на территории</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-lang="form-title">Оставить заявку</h2>
+            <div class="form-container">
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label data-lang="form-name">Имя *</label>
+                        <input type="text" class="form-control" name="name" required data-lang="form-name" placeholder="Иван Петров">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="form-phone">Телефон *</label>
+                        <input type="tel" class="form-control" name="phone" required placeholder="+996 700 123456" data-lang="form-phone">
+                        <!-- Подсказка с примерами номеров для 5 стран -->
+                        <small class="phone-hint" data-lang="phone-example">Пример: +996700123456 (KG), +77001234567 (KZ), +998901234567 (UZ), +992901234567 (TJ), +99361234567 (TM)</small>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="form-email">Email</label>
+                        <input type="email" class="form-control" name="email" data-lang="form-email" placeholder="example@mail.ru">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="form-message">Сообщение</label>
+                        <textarea class="form-control" name="message" rows="4" data-lang="form-message" placeholder="Ваше сообщение..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" data-lang="form-submit">Отправить</button>
+                </form>
+                <div id="formMessage" style="margin-top:20px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ЖК "Туран"</h4>
+                <ul>
+                    <li><a href="#about">О комплексе</a></li>
+                    <li><a href="#plans">Планировки</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#benefits">Преимущества</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 data-lang="contacts-title">Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +996 700 12-34-56</li>
+                    <li><i class="fas fa-envelope"></i> info@turan.kg</li>
+                    <li><i class="fas fa-map-marker-alt"></i> г. Бишкек, ул. Чуй, 150</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Социальные сети</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-lang="footer-copyright">© 2026 ЖК "Туран". Все права защищены.</p>
+            <p><a href="/admin" data-lang="admin-link">Вход для администратора</a></p>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

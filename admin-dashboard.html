@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель — ЖК "Туран"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css"> <!-- Подключаем отдельный CSS для админки -->
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+<!-- Шапка (общая) -->
+<header>
+    <div class="container header-content">
+        <nav class="nav">
+            <a href="/" class="logo">ЖК "Туран"</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="/about" class="nav-link">О комплексе</a></li>
+                <li><a href="/#plans" class="nav-link">Планировки</a></li>
+                <li><a href="/gallery" class="nav-link">Галерея</a></li>
+                <li><a href="/#benefits" class="nav-link">Преимущества</a></li>
+                <li><a href="/#location" class="nav-link">Локация</a></li>
+                <li><a href="/#video" class="nav-link">Видео</a></li>
+                <li><a href="/contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ru">РУ</button>
+                    <button class="lang-btn" data-lang="ky">КЫР</button>
+                    <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                    <button class="lang-btn" data-lang="uz">O'Z</button>
+                    <button class="lang-btn" data-lang="tg">ТОҶ</button>
+                    <button class="lang-btn" data-lang="tk">TKM</button>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Основное содержимое админ-панели -->
+<main style="margin-top: 100px; margin-bottom: 100px;">
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1 data-lang="admin-dashboard-title">Админ-панель</h1>
+            <button class="btn btn-secondary" onclick="logout()" data-lang="admin-logout">Выйти</button>
+        </div>
+
+        <!-- Статистика -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <h3 data-lang="admin-total-apartments">Всего квартир</h3>
+                <p id="totalApartments">0</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-lang="admin-available-apartments">Доступно</h3>
+                <p id="availableApartments">0</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-lang="admin-total-applications">Всего заявок</h3>
+                <p id="totalApplications">0</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-lang="admin-new-applications">Новых заявок</h3>
+                <p id="newApplications">0</p>
+            </div>
+        </div>
+
+        <!-- Вкладки -->
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="applications" data-lang="admin-applications-tab">Заявки</button>
+            <button class="tab-btn" data-tab="apartments" data-lang="admin-apartments-tab">Квартиры</button>
+            <button class="tab-btn" data-tab="addApartment" data-lang="admin-add-apartment-tab">Добавить квартиру</button>
+            <button class="tab-btn" data-tab="settings" data-lang="admin-settings-tab">Настройки</button>
+        </div>
+
+        <!-- Вкладка Заявки -->
+        <div id="applications" class="tab-content active">
+            <h2 data-lang="admin-applications-tab">Заявки</h2>
+            <div class="table-container">
+                <div id="applicationsLoading" class="loading" data-lang="profile-loading">Загрузка...</div>
+                <table id="applicationsTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th data-lang="admin-id">ID</th>
+                            <th data-lang="admin-name">Имя</th>
+                            <th data-lang="admin-phone">Телефон</th>
+                            <th data-lang="admin-status">Статус</th>
+                            <th data-lang="admin-date">Дата</th>
+                            <th data-lang="admin-actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Вкладка Квартиры -->
+        <div id="apartments" class="tab-content">
+            <h2 data-lang="admin-apartments-tab">Квартиры</h2>
+            <div class="table-container">
+                <div id="apartmentsLoading" class="loading" data-lang="profile-loading">Загрузка...</div>
+                <table id="apartmentsTable" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th data-lang="admin-id">ID</th>
+                            <th data-lang="admin-rooms">Комнат</th>
+                            <th data-lang="admin-area">Площадь</th>
+                            <th data-lang="admin-floor">Этаж</th>
+                            <th data-lang="admin-price">Цена</th>
+                            <th data-lang="admin-status">Статус</th>
+                            <th data-lang="admin-description">Описание</th>
+                            <th data-lang="admin-actions">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="apartmentsBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Вкладка Добавить квартиру -->
+        <div id="addApartment" class="tab-content">
+            <h2 data-lang="admin-add-apartment-tab">Добавить квартиру</h2>
+            <div class="table-container">
+                <form id="addApartmentForm">
+                    <div class="form-group">
+                        <label data-lang="admin-rooms">Количество комнат *</label>
+                        <input type="number" id="rooms" min="1" max="5" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-area">Площадь (м²) *</label>
+                        <input type="number" step="0.1" id="area" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-floor">Этаж *</label>
+                        <input type="number" id="floor" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-price">Цена (₽) *</label>
+                        <input type="number" id="price" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-status">Статус</label>
+                        <select id="status">
+                            <option value="available" data-lang="status-available">Доступна</option>
+                            <option value="reserved" data-lang="status-reserved">Забронирована</option>
+                            <option value="sold" data-lang="status-sold">Продана</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-building">Корпус</label>
+                        <input type="text" id="building" value="A">
+                    </div>
+                    <div class="form-group">
+                        <label data-lang="admin-description">Описание</label>
+                        <textarea id="description" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-lang="admin-save">Сохранить</button>
+                </form>
+                <div id="formMessage" style="margin-top:20px;"></div>
+            </div>
+        </div>
+
+        <!-- Вкладка Настройки -->
+        <div id="settings" class="tab-content">
+            <h2 data-lang="admin-settings-tab">Настройки</h2>
+            <div class="table-container">
+                <p>Здесь можно добавить дополнительные настройки.</p>
+                <button class="btn btn-secondary" id="reloadDataBtn" data-lang="filter-apply">Обновить данные</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Подвал (общий) -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ЖК "Туран"</h4>
+                <ul>
+                    <li><a href="/about">О комплексе</a></li>
+                    <li><a href="/#plans">Планировки</a></li>
+                    <li><a href="/gallery">Галерея</a></li>
+                    <li><a href="/contacts">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +996 700 12-34-56</li>
+                    <li><i class="fas fa-envelope"></i> info@turan.kg</li>
+                    <li><i class="fas fa-map-marker-alt"></i> г. Бишкек, ул. Чуй, 150</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Социальные сети</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ЖК "Туран". Все права защищены.</p>
+            <p><a href="/admin">Вход для администратора</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

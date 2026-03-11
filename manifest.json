@@ -1,0 +1,6 @@
+{
+  "name": "ЖК Туран",
+  "short_name": "Туран",
+  "start_url": "/",
+  "display": "standalone"
+}

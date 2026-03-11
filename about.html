@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЖК "Туран" – премиум-класс</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/translations.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-inner">
+        <div class="preloader-logo">ЖК "Туран"</div>
+        <div class="preloader-spinner"></div>
+    </div>
+</div>
+
+<!-- Шапка (уменьшенная) -->
+<header class="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="/" class="logo">ЖК "Туран"</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#about" class="nav-link">О комплексе</a></li>
+                <li><a href="#plans" class="nav-link">Планировки</a></li>
+                <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                <li><a href="#benefits" class="nav-link">Преимущества</a></li>
+                <li><a href="#location" class="nav-link">Локация</a></li>
+                <li><a href="#video" class="nav-link">Видео</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ru">РУ</button>
+                    <button class="lang-btn" data-lang="ky">КЫР</button>
+                    <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+                    <button class="lang-btn" data-lang="uz">O'Z</button>
+                    <button class="lang-btn" data-lang="tg">ТОҶ</button>
+                    <button class="lang-btn" data-lang="tk">TKM</button>
+                </div>
+                <div class="burger" id="burger">
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Главный экран -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Жилой комплекс премиум-класса</h1>
+        <div class="hero-subtitle">Туран</div>
+        <div class="hero-buttons">
+            <a href="#plans" class="btn btn-primary">Выбрать планировку</a>
+        </div>
+    </div>
+</section>
+
+<!-- О комплексе -->
+<section id="about" class="section about">
+    <div class="container">
+        <h2 class="section-title">О жилом комплексе</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Жилой комплекс «Туран» расположен в экологически чистом районе города, в непосредственной близости от центра, но вдали от шумных магистралей. Комплекс занимает площадь 5 гектаров и включает в себя три монолитно-кирпичных дома переменной этажности (18–25 этажей).</p>
+                <p>Архитектурная концепция разработана европейским бюро и сочетает в себе современный минимализм и классические элементы. Фасады отделаны натуральным камнем и керамогранитом, что обеспечивает долговечность и благородный внешний вид.</p>
+                <p>На закрытой охраняемой территории разместятся: ландшафтный парк, детские площадки, спортивные зоны, подземный паркинг, коммерческие помещения.</p>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/facade.jpg" alt="О комплексе">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Планировки (квартиры) -->
+<section id="plans" class="section plans">
+    <div class="container">
+        <h2 class="section-title">Планировки</h2>
+        <div id="loading" class="loading">Загрузка квартир...</div>
+        <div id="apartmentsGrid" class="apartments-grid"></div>
+        <div id="noApartments" style="display:none; text-align:center;">Квартир не найдено</div>
+    </div>
+</section>
+
+<!-- Галерея -->
+<section id="gallery" class="section gallery">
+    <div class="container">
+        <h2 class="section-title">Галерея</h2>
+        <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+</section>
+
+<!-- Преимущества (текст слева) -->
+<section id="benefits" class="section benefits">
+    <div class="container">
+        <h2 class="section-title">Преимущества</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-tree"></i>
+                <h3>Собственный парк</h3>
+                <p>Благоустроенная зелёная зона для прогулок и отдыха</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Круглосуточная охрана</h3>
+                <p>Видеонаблюдение и консьерж-сервис</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-parking"></i>
+                <h3>Подземный паркинг</h3>
+                <p>Индивидуальные машиноместа</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Спортзал и SPA</h3>
+                <p>Фитнес-центр с бассейном на территории</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Локация -->
+<section id="location" class="section location">
+    <div class="container">
+        <h2 class="section-title">Локация</h2>
+        <div class="location-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2926.644562066907!2d74.61502418188769!3d42.816996620611526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb5e70cfe082f%3A0x7d2938750c086857!2z0JbQuNC70L7QuSDQmtC-0LzQv9C70LXQutGBICLQpNGA0LDQvdGG0YPQt9GB0LrQuNC5INCa0LLQsNGA0YLQsNC7Ig!5e0!3m2!1sru!2sru!4v1772296841229!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Видео -->
+<section id="video" class="section video">
+    <div class="container">
+        <h2 class="section-title">Видео</h2>
+        <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DvfkkK4M-QU?si=STylVn-h4JWFZcbT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Форма связи -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <h2 class="section-title">Связаться</h2>
+        <div class="contact-form">
+            <form id="applicationForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Телефон" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Сообщение" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Отправить</button>
+            </form>
+            <div id="formMessage" style="margin-top:20px;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Футер с соцсетями -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>ЖК "Туран"</h4>
+                <ul>
+                    <li><a href="#about">О комплексе</a></li>
+                    <li><a href="#plans">Планировки</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#benefits">Преимущества</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +996 550 166 269</li>
+                    <li><i class="fas fa-envelope"></i> info@turan.kg</li>
+                    <li><i class="fas fa-map-marker-alt"></i> г. Бишкек, ул. Чуй, 150</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Социальные сети</h4>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ЖК "Туран". Все права защищены.</p>
+            <p><a href="/admin">Вход для администратора</a></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script src="js/gallery.js"></script>
+</body>
+</html>
