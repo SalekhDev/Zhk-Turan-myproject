@@ -2,7 +2,6 @@ const images = [
     { src: '/assets/images/facade.jpg', altKey: 'gallery-img1' },
     { src: '/assets/images/lobby.jpg', altKey: 'gallery-img2' },
     { src: '/assets/images/apartment.jpg', altKey: 'gallery-img3' },
-    { src: '/assets/images/apartment.jpg', altKey: 'gallery-img4' },
     { src: '/assets/images/parking.jpg', altKey: 'gallery-img5' }
 ];
 
@@ -46,4 +45,5 @@ document.addEventListener('languageChanged', function() {
         img.alt = newText;
         overlaySpan.textContent = newText;
     });
+
 });
