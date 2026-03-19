@@ -23,7 +23,7 @@ async function loadApartments() {
 
     try {
         loadingEl.style.display = 'block';
-        const response = await fetch('data/apartments.json'); // путь к файлу
+        const response = await fetch('/data/apartments.json'); // путь к файлу
         const data = await response.json();
 
         if (data.apartments && data.apartments.length > 0) {
